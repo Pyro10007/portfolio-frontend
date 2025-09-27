@@ -38,14 +38,14 @@ function App() {
   useEffect(() => {
     const fetchOwnerProfile = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/owner-profile'); // Fetch from backend
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/owner-profile`); // Fetch from backend
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         setOwnerProfile({
-          profileImageUrl: data.profileImageUrl.startsWith('/uploads') ? `http://localhost:5001${data.profileImageUrl}` : data.profileImageUrl,
-          heroImageUrl: data.profileImageUrl.startsWith('/uploads') ? `http://localhost:5001${data.profileImageUrl}` : data.profileImageUrl,
+          profileImageUrl: data.profileImageUrl.startsWith('/uploads') ? `${process.env.REACT_APP_BACKEND_URL}${data.profileImageUrl}` : data.profileImageUrl,
+          heroImageUrl: data.profileImageUrl.startsWith('/uploads') ? `${process.env.REACT_APP_BACKEND_URL}${data.profileImageUrl}` : data.profileImageUrl,
           name: data.name,
           profession: data.profession,
           missionStatement: data.missionStatement,
@@ -151,8 +151,8 @@ function App() {
   const updateProfileImage = (newImageUrl) => {
     setOwnerProfile(prev => ({
       ...prev,
-      profileImageUrl: newImageUrl.startsWith('/uploads') ? `http://localhost:5001${newImageUrl}?t=${Date.now()}` : newImageUrl,
-      heroImageUrl: newImageUrl.startsWith('/uploads') ? `http://localhost:5001${newImageUrl}?t=${Date.now()}` : newImageUrl,
+      profileImageUrl: newImageUrl.startsWith('/uploads') ? `${process.env.REACT_APP_BACKEND_URL}${newImageUrl}?t=${Date.now()}` : newImageUrl,
+      heroImageUrl: newImageUrl.startsWith('/uploads') ? `${process.env.REACT_APP_BACKEND_URL}${newImageUrl}?t=${Date.now()}` : newImageUrl,
     }));
   };
 

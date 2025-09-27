@@ -38,7 +38,7 @@ const Hero = ({ name, profession, missionStatement, imageUrl, isAdmin, updatePro
 
     try {
       const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
-      const response = await fetch('http://localhost:5001/api/owner-profile/upload-image', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/owner-profile/upload-image`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -65,7 +65,7 @@ const Hero = ({ name, profession, missionStatement, imageUrl, isAdmin, updatePro
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/owner-profile/remove-image', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/owner-profile/remove-image`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

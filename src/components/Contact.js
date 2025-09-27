@@ -37,7 +37,7 @@ const Contact = ({ contactEmail, contactPhone, contactLinkedIn, isAdmin, onSave 
     setStatus('Sending...');
     try {
       // Replace with your actual backend API endpoint
-      const response = await fetch('http://localhost:5001/api/contact', { // Updated port to 5001
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
