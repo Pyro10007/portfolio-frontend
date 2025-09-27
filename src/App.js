@@ -63,7 +63,7 @@ function App() {
 
     const fetchSkills = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/skills');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/skills`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -76,7 +76,7 @@ function App() {
 
     const fetchProjects = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/projects');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -89,7 +89,7 @@ function App() {
 
     const fetchQualifications = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/qualifications');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/qualifications`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -102,7 +102,7 @@ function App() {
 
     const fetchExperiences = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/experience');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/experience`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -115,7 +115,7 @@ function App() {
 
     const fetchAchievements = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/achievements');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/achievements`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -128,7 +128,7 @@ function App() {
 
     const fetchCertifications = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/certifications');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/certifications`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -159,7 +159,7 @@ function App() {
   const handleSaveOwnerProfile = async (updatedData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/owner-profile', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/owner-profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ function App() {
   const handleAddSkill = async (newSkill) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/skills', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/skills`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -209,7 +209,7 @@ function App() {
   const handleUpdateSkill = async (id, updatedSkill) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/skills/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/skills/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -235,7 +235,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this skill?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/skills/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/skills/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -258,7 +258,7 @@ function App() {
   const handleAddProject = async (newProject) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/projects', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -283,7 +283,7 @@ function App() {
   const handleUpdateProject = async (id, updatedProject) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/projects/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -309,7 +309,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/projects/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -332,7 +332,7 @@ function App() {
   const handleAddQualification = async (newQualification) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/qualifications', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/qualifications`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -357,7 +357,7 @@ function App() {
   const handleUpdateQualification = async (id, updatedQualification) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/qualifications/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/qualifications/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -383,7 +383,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this qualification?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/qualifications/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/qualifications/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -406,7 +406,7 @@ function App() {
   const handleAddExperience = async (newExperience) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/experience', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/experience`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -431,7 +431,7 @@ function App() {
   const handleUpdateExperience = async (id, updatedExperience) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/experience/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/experience/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -457,7 +457,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this experience?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/experience/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/experience/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -480,7 +480,7 @@ function App() {
   const handleAddAchievement = async (newAchievement) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/achievements', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/achievements`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -505,7 +505,7 @@ function App() {
   const handleUpdateAchievement = async (id, updatedAchievement) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/achievements/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/achievements/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -531,7 +531,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this achievement?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/achievements/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/achievements/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -554,7 +554,7 @@ function App() {
   const handleAddCertification = async (newCertification) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5001/api/certifications', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/certifications`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -579,7 +579,7 @@ function App() {
   const handleUpdateCertification = async (id, updatedCertification) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/certifications/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/certifications/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -605,7 +605,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this certification?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5001/api/certifications/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/certifications/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
