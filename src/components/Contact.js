@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { FaEnvelope, FaPhone, FaLinkedin } from 'react-icons/fa'; // Import icons
 
 const Contact = ({ contactEmail, contactPhone, contactLinkedIn, isAdmin, onSave }) => {
   const { theme } = useTheme();
@@ -66,40 +67,43 @@ const Contact = ({ contactEmail, contactPhone, contactLinkedIn, isAdmin, onSave 
         <p className={`text-lg md:text-xl mb-8 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
           I'm always open to new opportunities and collaborations. Feel free to reach out through the form below or connect with me directly:
         </p>
-        <div className="mb-8 space-y-4">
-          <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-            <strong>Email:</strong>{' '}
+        <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className={`p-6 rounded-lg shadow-lg flex flex-col items-center ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
+            <FaEnvelope className="text-pink-500 text-4xl mb-4" />
+            <h3 className="text-xl font-bold mb-2">Email</h3>
             <span
               contentEditable={isAdmin}
               onBlur={(e) => setEditableContactEmail(e.target.textContent)}
               suppressContentEditableWarning={true}
-              className="text-pink-500 hover:underline"
+              className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'} hover:text-pink-500 transition-colors duration-300`}
             >
               {editableContactEmail}
             </span>
-          </p>
-          <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-            <strong>Phone:</strong>{' '}
+          </div>
+          <div className={`p-6 rounded-lg shadow-lg flex flex-col items-center ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
+            <FaPhone className="text-pink-500 text-4xl mb-4" />
+            <h3 className="text-xl font-bold mb-2">Phone</h3>
             <span
               contentEditable={isAdmin}
               onBlur={(e) => setEditableContactPhone(e.target.textContent)}
               suppressContentEditableWarning={true}
-              className="text-pink-500 hover:underline"
+              className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'} hover:text-pink-500 transition-colors duration-300`}
             >
               {editableContactPhone}
             </span>
-          </p>
-          <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-            <strong>LinkedIn:</strong>{' '}
+          </div>
+          <div className={`p-6 rounded-lg shadow-lg flex flex-col items-center ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
+            <FaLinkedin className="text-pink-500 text-4xl mb-4" />
+            <h3 className="text-xl font-bold mb-2">LinkedIn</h3>
             <span
               contentEditable={isAdmin}
               onBlur={(e) => setEditableContactLinkedIn(e.target.textContent)}
               suppressContentEditableWarning={true}
-              className="text-pink-500 hover:underline"
+              className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'} hover:text-pink-500 transition-colors duration-300`}
             >
               {editableContactLinkedIn}
             </span>
-          </p>
+          </div>
         </div>
         {isAdmin && (
           <button
